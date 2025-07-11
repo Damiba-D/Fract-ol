@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:37:51 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/10 17:30:44 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/11 14:12:44 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,7 @@ int	main(void)
 	img.img = mlx_new_image(mlx, 800, 500);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	x = x0 - height;
-	int y_offset = 0;
-	while (y_offset <= height)
-	{
-		y = y0 + height / 2;
-		while (y >= y0 + height / 2 - y_offset)
-		{
-			my_mlx_pixel_put(&img, x, y, 0x000000FF); // Blue pixel
-			y--;
-		}
-		y_offset++;
-		x++;
-	}
-	x = x0 + height;
-	y_offset = 0;
-	while (y_offset <= height)
-	{
-		y = y0 + height / 2;
-		while (y >= y0 + height / 2 - y_offset)
-		{
-			my_mlx_pixel_put(&img, x, y, 0x000000FF);
-			y--;
-		}
-		y_offset++;
-		x--;
-	}
+	
 	
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
@@ -101,4 +76,32 @@ int	main(void)
 			y++;
 		}
 		x++;
+	} */
+
+//Draw triangle
+/* x = x0 - height;
+	int y_offset = 0;
+	while (y_offset <= height)
+	{
+		y = y0 + height / 2;
+		while (y >= y0 + height / 2 - y_offset)
+		{
+			my_mlx_pixel_put(&img, x, y, 0x000000FF); // Blue pixel
+			y--;
+		}
+		y_offset++;
+		x++;
+	}
+	x = x0 + height;
+	y_offset = 0;
+	while (y_offset <= height)
+	{
+		y = y0 + height / 2;
+		while (y >= y0 + height / 2 - y_offset)
+		{
+			my_mlx_pixel_put(&img, x, y, 0x000000FF);
+			y--;
+		}
+		y_offset++;
+		x--;
 	} */
