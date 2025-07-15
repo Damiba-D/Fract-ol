@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/09 15:12:25 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/11 14:26:58 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 #include "libft/libft.h"
 #include "minilibx-linux/mlx.h"
 #include "minilibx-linux/mlx_int.h"
+#include <math.h>
 
 #endif
