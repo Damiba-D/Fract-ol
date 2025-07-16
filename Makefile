@@ -7,8 +7,8 @@ NAME        = fractol
 
 # Sources and Objects
 SRC_DIR     = .
-SRC         = fractol.c
-OBJ         = $(SRC:.c=.o)
+SRCS        = fractol.c in_mb_set.c
+OBJ         = $(SRCS:.c=.o)
 
 # Compiler Settings
 CC          = cc
@@ -16,7 +16,9 @@ CFLAGS      = -Wall -Wextra -Werror -Ilibft -Iminilibx-linux -I/usr/include -I/u
 
 # Libft Configuration
 LIBFT_DIR   = ./libft
+FT_PRINTF_DIR = $(LIBFT_DIR)/ft_printf
 LIBFT_LIB   = $(LIBFT_DIR)/libft.a
+FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 # MiniLibX Configuration
 MLX_DIR     = ./minilibx-linux
@@ -35,7 +37,7 @@ $(NAME): $(OBJ)
 	@echo "🔧 Building minilibx..."
 	@$(MAKE) -C $(MLX_DIR)
 	@echo "🏗  Linking executable..."
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_LIB) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_LIB) $(FT_PRINTF_LIB) $(MLX_FLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
