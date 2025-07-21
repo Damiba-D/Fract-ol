@@ -7,12 +7,12 @@ NAME        = fractol
 
 # Sources and Objects
 SRC_DIR     = .
-SRCS        = fractol.c in_mb_set.c
+SRCS        = fractol.c pos_in_scale.c fractal_init.c
 OBJ         = $(SRCS:.c=.o)
 
 # Compiler Settings
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -Ilibft -Iminilibx-linux -I/usr/include -I/usr/include/X11
+CFLAGS      = -g -Wall -Wextra -Werror -Ilibft -Iminilibx -I/usr/include -I/usr/include/X11
 
 # Libft Configuration
 LIBFT_DIR   = ./libft
@@ -21,9 +21,9 @@ LIBFT_LIB   = $(LIBFT_DIR)/libft.a
 FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 # MiniLibX Configuration
-MLX_DIR     = ./minilibx-linux
+MLX_DIR     = ./minilibx
 MLX_LIB     = $(MLX_DIR)/libmlx.a
-MLX_FLAGS   = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 # =========================
 #       Build Targets

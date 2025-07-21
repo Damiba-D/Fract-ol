@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   in_mb_set.c                                        :+:      :+:    :+:   */
+/*   pos_in_scale.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:06:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/16 17:37:11 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/18 16:47:00 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int in_mb_set(double x, double y)
+int pos_in_scale(double x, double y)
 {
 	int i;
 	double z;
 	int var;
 	double I;
+	double tmp;
 
 	i = 0;
 	z = 0;
 	var = 50;
-	I = sqrt(-1);
+	I = 0;
 	while(i < var)
-	{
-		z = pow(z, 2) + x + (y * I);
-		if (z > 2)
-			return (0);
+	{	
+		tmp = pow(z, 2) - pow(I, 2) + x;
+		I = 2 * z * I + y;
+		z = tmp;
+		if (pow(z, 2) + pow(I, 2) > 4)
+			break ;
 		i++;
 	}
-	return (1);
+	return (i);
 }
