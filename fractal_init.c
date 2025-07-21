@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/21 16:57:44 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/21 18:45:13 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void fractal_init(t_fractal *fractal)
         free(fractal->mlx);
         malloc_error();
     }
-    fractal->img.bits_per_pixel = mlx_get_data_addr(fractal->img.img, &fractal->img.bits_per_pixel, &fractal->img.line_length, &fractal->img.endian);
-    
+    fractal->img.addr = mlx_get_data_addr(fractal->img.img, &fractal->img.bits_per_pixel, &fractal->img.line_length, &fractal->img.endian);
+    mlx_key_hook(fractal->win, key_hook, fractal);
+	mlx_mouse_hook(fractal->win, mouse_hook, fractal);
+	mlx_hook(fractal->win, DestroyNotify, NoEventMask, ft_cross_close, fractal);
+	mlx_hook(fractal->win, KeyPress, KeyPressMask, ft_close, fractal);
 }
 

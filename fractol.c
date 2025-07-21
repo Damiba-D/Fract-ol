@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:37:51 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/21 17:02:44 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/21 18:48:22 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,6 @@ int mouse_hook(int button, int x,int y, void *param)
 
 int	main(int argc, char **argv)
 {
-/* 	t_fractal vars;
-	//t_data	img;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1000, 1000, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_mouse_hook(vars.win, mouse_hook, &vars);
-	mlx_hook(vars.win, DestroyNotify, NoEventMask, ft_cross_close, &vars);
-	mlx_hook(vars.win, KeyPress, KeyPressMask, ft_close, &vars);
-	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
-	mlx_loop(vars.mlx); */
 	t_fractal fractal;
 	
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))\
@@ -114,7 +103,7 @@ int	main(int argc, char **argv)
 	{
 			fractal.name = argv[1];
 			fractal_init(&fractal);
-			fractal_render(&fractal);
+			//fractal_render(&fractal);
 			mlx_loop(fractal.mlx);
 	}
 	else
@@ -122,10 +111,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("ERROR\n", 2);
 		return (-1);
 	} 
-	if (pos_in_scale(0.5, 0.5) == 50)
-		ft_printf("ITS IN\n");
-	else
-		ft_printf("ITS OUT\n");
 }
 
 
