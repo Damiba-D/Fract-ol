@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:20 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/21 22:31:36 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ typedef struct s_fractal
 	t_data	img;
 }				t_fractal;
 
+typedef struct s_complex
+{
+	double x;
+	double y;
+}				t_complex;
+
 int pos_in_scale(double x, double y);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void fractal_init(t_fractal *fractal);
@@ -49,4 +55,5 @@ int	ft_close(int keypress, t_fractal *vars);
 int ft_cross_close(t_fractal *vars);
 int key_hook(int keycode, t_fractal *vars);
 int mouse_hook(int button, int x,int y, void *param);
+double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 #endif
