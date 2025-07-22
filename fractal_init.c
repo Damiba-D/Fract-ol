@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/21 18:45:13 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/22 08:07:25 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ static void    malloc_error(void)
 {
     ft_putstr_fd("Malloc Error", 2);
     exit(EXIT_FAILURE);
+}
+
+void data_init(t_fractal *fractal)
+{
+	fractal->escape_value = 4;
+	fractal->i_definition = 50;
 }
 
 void fractal_init(t_fractal *fractal)
