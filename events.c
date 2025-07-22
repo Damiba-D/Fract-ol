@@ -6,30 +6,26 @@
 /*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 12:16:55 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/22 14:22:34 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_close(int keysym, t_fractal *vars)
+int close_handler(t_fractal *vars)
 {
-	if (keysym == XK_Escape)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-        mlx_destroy_display(vars->mlx);
-        free(vars->mlx);
-		exit (0);
-	}
-	return (0);
-}
-
-int ft_cross_close(t_fractal *vars)
-{
+	mlx_destroy_image(vars->mlx, vars->img.img);
 	mlx_destroy_window(vars->mlx, vars->win);
     mlx_destroy_display(vars->mlx);
     free(vars->mlx);
-	exit (0);
+	exit (EXIT_SUCCESS);
+	return (0);
+}
+
+int	ft_close(int keysym, t_fractal *vars)
+{
+	if (keysym == XK_Escape)
+		close_handler(vars);
 	return (0);
 }
 
@@ -43,9 +39,9 @@ int key_hook(int keysym, t_fractal *vars)
 		vars->shift_x -= 0.5;
 	else if (keysym == XK_Right)
 		vars->shift_x += 0.5;
-    else if (keysym == XK_plus)
+    else if (keysym == XK_KP_Add)
         vars->i_definition += 10;
-    else if (keysym == XK_minus)
+    else if (keysym == XK_KP_Subtract)
         vars->i_definition -= 10;
     fractal_render(vars);
 	return (0);

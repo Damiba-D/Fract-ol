@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 12:11:49 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/22 14:21:42 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void events_init(t_fractal *fractal)
 {
     mlx_key_hook(fractal->win, key_hook, fractal);
 	mlx_mouse_hook(fractal->win, mouse_hook, fractal);
-	mlx_hook(fractal->win, DestroyNotify, NoEventMask, ft_cross_close, fractal);
+	mlx_hook(fractal->win, DestroyNotify, NoEventMask, close_handler, fractal);
 	mlx_hook(fractal->win, KeyPress, KeyPressMask, ft_close, fractal);
 }
 
