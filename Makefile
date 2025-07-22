@@ -7,7 +7,7 @@ NAME        = fractol
 
 # Sources and Objects
 SRC_DIR     = .
-SRCS        = fractol.c pos_in_scale.c fractal_init.c
+SRCS        = fractol.c fractal_init.c math_utils.c render.c events.c
 OBJ         = $(SRCS:.c=.o)
 
 # Compiler Settings

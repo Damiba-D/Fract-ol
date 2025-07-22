@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:37:51 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/21 18:48:22 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:37:09 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,76 +23,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 //fazer funcao para verificar se uma coord faz parte do mandelbrot set
 //fazer uma funcao que traduza um pixel para coordenada
 
-int add_shade(double shade, int color)
-{
-	if (shade == 0)
-		return (color);
-    int r = ((color >> 16) & 0xFF) * shade;
-    int g = ((color >> 8) & 0xFF) * shade;
-    int b = (color & 0xFF) * shade;
-
-    return ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | (b & 0xFF);
-}
-
-
-int set_color_shade(int x, int y)
-{
-	int color;
-	double shade;
-
-	color = 0x00FFFFFF;
-	shade = 100.0 - ((double)pos_in_scale((double)x, (double)y) / 50.0 * 100);
-	color = add_shade(shade, color);
-	return (color);
-}
-
-int	ft_close(int keypress, t_fractal *vars)
-{
-	if (keypress == XK_Escape)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit (0);
-	}
-	return (0);
-}
-
-int ft_cross_close(t_fractal *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	exit (0);
-	return (0);
-}
-
-int key_hook(int keycode, t_fractal *vars)
-{
-	(void)vars;
-	if (keycode == XK_Up)
-		ft_printf("UP\n");
-	else if (keycode == XK_Down)
-		ft_printf("DOWN\n");
-	else if (keycode == XK_Left)
-		ft_printf("LEFT\n");
-	else if (keycode == XK_Right)
-		ft_printf("RIGHT\n");
-	return (0);
-}
-
-int mouse_hook(int button, int x,int y, void *param)
-{
-	(void)x;
-	(void)y;
-	(void)param;
-	if (button == Button4)
-		ft_printf("SCROLLUP\n");
-	else if (button == Button5)
-		ft_printf("SCROLLDOWN\n");
-	return (0);
-}
-
-/* int render_next_frame(void *param)
-{
-	
-} */
 
 int	main(int argc, char **argv)
 {
@@ -103,7 +33,7 @@ int	main(int argc, char **argv)
 	{
 			fractal.name = argv[1];
 			fractal_init(&fractal);
-			//fractal_render(&fractal);
+			fractal_render(&fractal);
 			mlx_loop(fractal.mlx);
 	}
 	else

@@ -3,25 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 08:07:25 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/22 12:11:49 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void    malloc_error(void)
+static void malloc_error(void)
 {
     ft_putstr_fd("Malloc Error", 2);
     exit(EXIT_FAILURE);
 }
 
-void data_init(t_fractal *fractal)
+static void data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
 	fractal->i_definition = 50;
+    fractal->shift_x = 0;
+    fractal->shift_y = 0;
+}
+
+static void events_init(t_fractal *fractal)
+{
+    mlx_key_hook(fractal->win, key_hook, fractal);
+	mlx_mouse_hook(fractal->win, mouse_hook, fractal);
+	mlx_hook(fractal->win, DestroyNotify, NoEventMask, ft_cross_close, fractal);
+	mlx_hook(fractal->win, KeyPress, KeyPressMask, ft_close, fractal);
 }
 
 void fractal_init(t_fractal *fractal)
@@ -45,9 +55,7 @@ void fractal_init(t_fractal *fractal)
         malloc_error();
     }
     fractal->img.addr = mlx_get_data_addr(fractal->img.img, &fractal->img.bits_per_pixel, &fractal->img.line_length, &fractal->img.endian);
-    mlx_key_hook(fractal->win, key_hook, fractal);
-	mlx_mouse_hook(fractal->win, mouse_hook, fractal);
-	mlx_hook(fractal->win, DestroyNotify, NoEventMask, ft_cross_close, fractal);
-	mlx_hook(fractal->win, KeyPress, KeyPressMask, ft_close, fractal);
+    events_init(fractal);
+    data_init(fractal);
 }
 
