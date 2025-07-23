@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 12:52:17 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 16:51:24 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int key_hook(int keysym, t_fractal *vars)
 	return (0);
 }
 
-int mouse_hook(int button, int x,int y, t_fractal *param)
+/* int mouse_hook(int button, int x,int y, t_fractal *param)
 {
 	(void)x;
 	(void)y;
@@ -61,4 +61,29 @@ int mouse_hook(int button, int x,int y, t_fractal *param)
 	}
 	fractal_render(param);
 	return (0);
+} */
+
+int mouse_hook(int button, int x, int y, t_fractal *param)
+{
+	t_complex zoom_center;
+
+	// Match exactly how mandel_or_julia() calculates complex coordinate
+	zoom_center.x = map(x, +2, -2, 0, WIDTH) * param->zoom + param->shift_x;
+	zoom_center.y = map(y, -2, +2, 0, HEIGHT) * param->zoom + param->shift_y;
+
+	if (button == Button5) // scroll up - zoom in
+	{
+		param->shift_x = zoom_center.x - (zoom_center.x - param->shift_x) / 1.05;
+		param->shift_y = zoom_center.y - (zoom_center.y - param->shift_y) / 1.05;
+		param->zoom *= 1.05;
+	}
+	else if (button == Button4) // scroll down - zoom out
+	{
+		param->shift_x = zoom_center.x - (zoom_center.x - param->shift_x) / 0.95;
+		param->shift_y = zoom_center.y - (zoom_center.y - param->shift_y) / 0.95;
+		param->zoom *= 0.95;
+	}
+	fractal_render(param);
+	return (0);
 }
+
