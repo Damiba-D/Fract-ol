@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 14:23:23 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 15:25:01 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct s_fractal
 	int		i_definition;
 	double shift_x;
 	double shift_y;
+	double zoom;
+	double julia_x;
+	double julia_y;
 }				t_fractal;
 
 typedef struct s_complex
@@ -63,14 +66,22 @@ typedef struct s_complex
 	double y;
 }				t_complex;
 
-int pos_in_scale(double x, double y);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+typedef struct s_atdb_vars
+{
+	long inte;
+	double fract;
+	double pow;
+	int sign;
+	int i;
+}				t_atdb_vars;
+
+double atdb(char *s);
 void fractal_init(t_fractal *fractal);
 void fractal_render(t_fractal *fractal);
 int	ft_close(int keypress, t_fractal *vars);
 int close_handler(t_fractal *vars);
 int key_hook(int keycode, t_fractal *vars);
-int mouse_hook(int button, int x,int y, void *param);
+int mouse_hook(int button, int x,int y, t_fractal *param);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex sum_complex(t_complex num1, t_complex num2);
 t_complex square_complex(t_complex num);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 14:21:42 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 12:38:00 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void data_init(t_fractal *fractal)
 	fractal->i_definition = 50;
     fractal->shift_x = 0;
     fractal->shift_y = 0;
+	fractal->zoom = 1.0;
 }
 
 static void events_init(t_fractal *fractal)

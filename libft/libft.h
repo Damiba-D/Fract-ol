@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 15:09:08 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/06/20 18:12:42 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 13:16:50 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(char c);
 
 // Character case conversions
 int		ft_toupper(int c);

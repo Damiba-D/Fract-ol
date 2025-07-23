@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/22 14:22:34 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 12:52:17 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	ft_close(int keysym, t_fractal *vars)
 int key_hook(int keysym, t_fractal *vars)
 {
 	if (keysym == XK_Up)
-		vars->shift_y += 0.5;
+		vars->shift_y += (0.5 * vars->zoom);
 	else if (keysym == XK_Down)
-		vars->shift_y -= 0.5;
+		vars->shift_y -= (0.5 * vars->zoom);
 	else if (keysym == XK_Left)
-		vars->shift_x -= 0.5;
+		vars->shift_x -=(0.5 * vars->zoom);
 	else if (keysym == XK_Right)
-		vars->shift_x += 0.5;
+		vars->shift_x += (0.5 * vars->zoom);
     else if (keysym == XK_KP_Add)
         vars->i_definition += 10;
     else if (keysym == XK_KP_Subtract)
@@ -47,14 +47,18 @@ int key_hook(int keysym, t_fractal *vars)
 	return (0);
 }
 
-int mouse_hook(int button, int x,int y, void *param)
+int mouse_hook(int button, int x,int y, t_fractal *param)
 {
 	(void)x;
 	(void)y;
-	(void)param;
-	if (button == Button4)
-		ft_printf("SCROLLUP\n");
-	else if (button == Button5)
-		ft_printf("SCROLLDOWN\n");
+	if (button == Button5)
+	{
+		param->zoom *=1.05;
+	}
+	else if (button == Button4)
+	{
+		param->zoom *=0.95;
+	}
+	fractal_render(param);
 	return (0);
 }
