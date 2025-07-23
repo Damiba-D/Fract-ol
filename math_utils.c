@@ -6,38 +6,45 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:47:08 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 14:09:37 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/23 21:09:46 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
+double	map(double unsc_num, t_complex range, double old_min, double old_max)
 {
-	return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
+	return ((range.y - range.x) * (unsc_num - old_min) \
+/ (old_max - old_min) + range.x);
 }
 
-t_complex sum_complex(t_complex num1, t_complex num2)
+double	map_colors(double unsc_num, t_colors colors, double min, double max)
 {
-	t_complex result;
+	return ((colors.r_end - colors.r_start) * (unsc_num - min) \
+/ (max - min) + colors.r_start);
+}
+
+t_complex	sum_complex(t_complex num1, t_complex num2)
+{
+	t_complex	result;
 
 	result.x = num1.x + num2.x;
 	result.y = num1.y + num2.y;
 	return (result);
 }
 
-t_complex square_complex(t_complex num)
+t_complex	square_complex(t_complex num)
 {
-	t_complex result;
+	t_complex	result;
 
 	result.x = (num.x * num.x) - (num.y * num.y);
 	result.y = 2 * num.x * num.y;
 	return (result);
 }
 
-double atdb(char *s)
+double	atdb(char *s)
 {
-	t_atdb_vars vars;
+	t_atdb_vars	vars;
 
 	vars.inte = 0;
 	vars.fract = 0;
@@ -56,7 +63,7 @@ double atdb(char *s)
 		vars.inte = (vars.inte * 10) + (s[vars.i++] - '0');
 	if (s[vars.i] == '.')
 		vars.i++;
-	while(ft_isdigit(s[vars.i]) && s[vars.i])
+	while (ft_isdigit(s[vars.i]) && s[vars.i])
 	{
 		vars.pow /= 10;
 		vars.fract += (s[vars.i++] - '0') * vars.pow;
