@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:37:51 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 19:40:23 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/24 15:39:13 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	{
 		if (argc == 4)
 		{
+			check_args(argv);
 			fractal.julia_x = atdb(argv[2]);
 			fractal.julia_y = atdb(argv[3]);
 		}
@@ -30,9 +31,6 @@ int	main(int argc, char **argv)
 		mlx_loop(fractal.mlx);
 	}
 	else
-	{
-		ft_putstr_fd("ERROR\n", 2);
-		return (-1);
-	}
+		arg_error();
 	return (0);
 }

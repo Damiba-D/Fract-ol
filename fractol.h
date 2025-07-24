@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 21:55:23 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/24 15:33:41 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,6 @@ double		map_colors(double unsc_num, t_colors colors, \
 double min, double max);
 t_complex	sum_complex(t_complex num1, t_complex num2);
 t_complex	square_complex(t_complex num);
+void		check_args(char **argv);
+void		arg_error(void);
 #endif
