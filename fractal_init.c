@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 19:38:31 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:33:18 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ static void	data_init(t_fractal *fractal)
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
 	fractal->zoom = 1.0;
+	fractal->colors.color = BLACK;
+	fractal->colors.r_start = BLACK;
+	fractal->colors.r_end = WHITE;
 }
 
 static void	events_init(t_fractal *fractal)
@@ -57,6 +60,6 @@ void	fractal_init(t_fractal *fractal)
 	}
 	fractal->img.addr = mlx_get_data_addr(fractal->img.img, \
 &fractal->img.bits_per_pixel, &fractal->img.line_length, &fractal->img.endian);
-	events_init(fractal);
 	data_init(fractal);
+	events_init(fractal);
 }

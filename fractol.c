@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:37:51 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/24 15:39:13 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 14:35:06 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
 
-	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) \
-|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11)) \
+|| (argc == 4 && !ft_strncmp(argv[1], "julia", 6)))
 	{
 		if (argc == 4)
 		{

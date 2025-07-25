@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 20:42:46 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:25:08 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ int	mouse_hook(int button, int x, int y, t_fractal *param)
 	r_range.y = -2;
 	zoom_c.x = map(x, r_range, 0, WIDTH) * param->zoom + param->shift_x;
 	zoom_c.y = map(y, range, 0, HEIGHT) * param->zoom + param->shift_y;
+	if (button == Button1)
+		param->colors.r_end = WHITE;
+	else if (button == Button2)
+		param->colors.r_end = ORANGE;
 	if (button == Button5)
 	{
 		param->shift_x = zoom_c.x - (zoom_c.x - param->shift_x) / 1.05;

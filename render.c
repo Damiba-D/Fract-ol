@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:19:11 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/23 21:36:25 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:27:07 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,10 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	t_complex	z;
 	t_complex	c;
 	t_complex	coords;
-	t_colors	colors;
 	int			i;
 
 	coords.x = x;
 	coords.y = y;
-	colors.r_start = BLACK;
-	colors.r_end = WHITE;
 	i = 0;
 	mandel_or_julia(&z, &c, fractal, coords);
 	while (i < fractal->i_definition)
@@ -69,13 +66,13 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		z = sum_complex(square_complex(z), c);
 		if (pow(z.x, 2) + pow(z.y, 2) > fractal->escape_value)
 		{
-			colors.color = map_colors(i, colors, 0, fractal->i_definition);
-			my_mlx_pixel_put(&fractal->img, x, y, colors.color);
+			fractal->colors.color = map_colors(i, fractal->colors, 0, fractal->i_definition);
+			my_mlx_pixel_put(&fractal->img, x, y, fractal->colors.color);
 			return ;
 		}
 		i++;
 	}
-	my_mlx_pixel_put(&fractal->img, x, y, BLACK);
+	my_mlx_pixel_put(&fractal->img, x, y, fractal->colors.r_start);
 }
 
 void	fractal_render(t_fractal *fractal)

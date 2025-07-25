@@ -6,7 +6,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/fractol",
-      "args": ["-2.1"],
+      "args": ["juliae", "0.4", "0.4"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 12:13:04 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 14:59:42 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define HEIGHT 1000
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
+# define ORANGE 0xFF9900
 
 typedef struct s_data
 {
@@ -35,6 +36,13 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }				t_data;
+
+typedef struct s_colors
+{
+	int	r_start;
+	int	r_end;
+	int	color;
+}				t_colors;
 
 typedef struct s_fractal
 {
@@ -49,6 +57,7 @@ typedef struct s_fractal
 	double	zoom;
 	double	julia_x;
 	double	julia_y;
+	t_colors colors;
 }				t_fractal;
 
 typedef struct s_complex
@@ -65,13 +74,6 @@ typedef struct s_atdb_vars
 	int		sign;
 	int		i;
 }				t_atdb_vars;
-
-typedef struct s_colors
-{
-	int	r_start;
-	int	r_end;
-	int	color;
-}				t_colors;
 
 double		atdb(char *s);
 void		fractal_init(t_fractal *fractal);
