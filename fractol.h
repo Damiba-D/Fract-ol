@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/24 15:33:41 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/25 12:13:04 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@
 # define HEIGHT 1000
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
-# define SUNSHINE_YELLOW  0xFFFF33  // Brightest
-# define LIME_GREEN       0x39FF14
-# define NEON_PINK        0xFF00FF
-# define CYAN_PUNCH       0x00FFCC
-# define ELECTRIC_BLUE    0x00FFFF
-# define RAINBOW_RED      0xFF0033
-# define TEAL_DREAM       0x00FF99
-# define HOT_ORANGE       0xFF5E00
-# define PURPLE_RAVE      0x9B30FF
-# define ULTRA_VIOLET     0x9400D3  // Darkest
 
 typedef struct s_data
 {
