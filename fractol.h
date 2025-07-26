@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 14:59:42 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 15:54:44 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # define HEIGHT 1000
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
-# define ORANGE 0xFF9900
+# define ORANGE 0x00FF9900
+# define VIOLET 0x00330066
 
 typedef struct s_data
 {
