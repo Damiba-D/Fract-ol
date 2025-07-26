@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:31:46 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 14:21:10 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 16:59:52 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_valid_double(char *str)
 	i = 0;
 	if (str[i] == '\0')
 		return (0);
-	if ((str[i] == '-' || str[i] == '+' || str[i] == '.') && str[i+1] == '\0')
+	if ((str[i] == '-' || str[i] == '+' || str[i] == '.') && str[i + 1] == '\0')
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;

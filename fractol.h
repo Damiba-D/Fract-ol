@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 15:54:44 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 16:51:01 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define HEIGHT 1000
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
-# define ORANGE 0x00FF9900
-# define VIOLET 0x00330066
+# define ORANGE 0x00FFA500
+# define PURPLE 0x00301934
 
 typedef struct s_data
 {
@@ -47,18 +47,18 @@ typedef struct s_colors
 
 typedef struct s_fractal
 {
-	char	*name;
-	void	*mlx;
-	void	*win;
-	t_data	img;
-	double	escape_value;
-	int		i_definition;
-	double	shift_x;
-	double	shift_y;
-	double	zoom;
-	double	julia_x;
-	double	julia_y;
-	t_colors colors;
+	char		*name;
+	void		*mlx;
+	void		*win;
+	t_data		img;
+	double		escape_value;
+	int			i_definition;
+	double		shift_x;
+	double		shift_y;
+	double		zoom;
+	double		julia_x;
+	double		julia_y;
+	t_colors	colors;
 }				t_fractal;
 
 typedef struct s_complex
@@ -85,7 +85,7 @@ int			key_hook(int keycode, t_fractal *vars);
 int			mouse_hook(int button, int x, int y, t_fractal *param);
 double		map(double unsc_num, t_complex range, \
 double old_min, double old_max);
-double		map_colors(double unsc_num, t_colors colors, \
+int			map_colors(double unsc_num, t_colors colors, \
 double min, double max);
 t_complex	sum_complex(t_complex num1, t_complex num2);
 t_complex	square_complex(t_complex num);

@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:19:11 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 22:15:10 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 17:02:59 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,16 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		z = sum_complex(square_complex(z), c);
 		if (pow(z.x, 2) + pow(z.y, 2) > fractal->escape_value)
 		{
-			fractal->colors.color = map_colors(i, fractal->colors, 0, fractal->i_definition);
+			if (i == 0)
+				return (my_mlx_pixel_put(&fractal->img, x, y, BLACK));
+			fractal->colors.color = map_colors(i, fractal->colors, 0, \
+fractal->i_definition);
 			my_mlx_pixel_put(&fractal->img, x, y, fractal->colors.color);
 			return ;
 		}
 		i++;
 	}
-	my_mlx_pixel_put(&fractal->img, x, y, fractal->colors.r_start);
+	my_mlx_pixel_put(&fractal->img, x, y, BLACK);
 }
 
 void	fractal_render(t_fractal *fractal)

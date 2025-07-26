@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:47:08 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 15:36:30 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 16:58:19 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,20 @@ double	map(double unsc_num, t_complex range, double old_min, double old_max)
 / (old_max - old_min) + range.x);
 }
 
-double	map_colors(double unsc_num, t_colors colors, double min, double max)
+int	map_colors(double unsc_num, t_colors colors, double min, double max)
 {
-	return ((colors.r_end - colors.r_start) * (unsc_num - min) \
-/ (max - min) + colors.r_start);
+	double	t;
+	int		r;
+	int		g;
+	int		b;
+
+	t = (unsc_num - min) / (max - min);
+	r = ((1 - t) * ((colors.r_start >> 16) & 0xFF) + \
+t * ((colors.r_end >> 16) & 0xFF));
+	g = ((1 - t) * ((colors.r_start >> 8) & 0xFF) + \
+t * ((colors.r_end >> 8) & 0xFF));
+	b = ((1 - t) * (colors.r_start & 0xFF) + t * (colors.r_end & 0xFF));
+	return ((r << 16) | (g << 8) | b);
 }
 
 t_complex	sum_complex(t_complex num1, t_complex num2)

@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 15:58:03 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/26 16:47:50 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,19 @@ int	key_hook(int keysym, t_fractal *vars)
 		vars->i_definition += 10;
 	else if (keysym == XK_KP_Subtract)
 		vars->i_definition -= 10;
+	if (keysym == XK_1)
+	{
+		vars->colors.r_start = BLACK;
+		vars->colors.r_end = WHITE;
+	}
+	else if (keysym == XK_2)
+	{
+		vars->colors.r_start = PURPLE;
+		vars->colors.r_end = ORANGE;
+	}
 	fractal_render(vars);
 	return (0);
 }
-
-/* int mouse_hook(int button, int x,int y, t_fractal *param)
-{
-	(void)x;
-	(void)y;
-	if (button == Button5)
-	{
-		param->zoom *=1.05;
-	}
-	else if (button == Button4)
-	{
-		param->zoom *=0.95;
-	}
-	fractal_render(param);
-	return (0);
-} */
 
 int	mouse_hook(int button, int x, int y, t_fractal *param)
 {
@@ -75,16 +69,6 @@ int	mouse_hook(int button, int x, int y, t_fractal *param)
 	r_range.y = -2;
 	zoom_c.x = map(x, r_range, 0, WIDTH) * param->zoom + param->shift_x;
 	zoom_c.y = map(y, range, 0, HEIGHT) * param->zoom + param->shift_y;
-	if (button == Button1)
-	{
-		param->colors.r_start = BLACK;
-		param->colors.r_end = WHITE;
-	}
-	else if (button == Button3)
-	{
-		param->colors.r_start = VIOLET;
-		param->colors.r_end = ORANGE;
-	}
 	if (button == Button5)
 	{
 		param->shift_x = zoom_c.x - (zoom_c.x - param->shift_x) / 1.05;
