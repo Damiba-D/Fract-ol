@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 16:51:01 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:10:06 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef struct s_colors
 	int	color;
 }				t_colors;
 
+typedef struct s_complex
+{
+	double	x;
+	double	y;
+}				t_complex;
+
 typedef struct s_fractal
 {
 	char		*name;
@@ -59,13 +65,9 @@ typedef struct s_fractal
 	double		julia_x;
 	double		julia_y;
 	t_colors	colors;
+	t_complex	range;
+	t_complex	r_range;
 }				t_fractal;
-
-typedef struct s_complex
-{
-	double	x;
-	double	y;
-}				t_complex;
 
 typedef struct s_atdb_vars
 {

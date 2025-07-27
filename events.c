@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 16:47:50 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:09:44 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,9 @@ int	key_hook(int keysym, t_fractal *vars)
 int	mouse_hook(int button, int x, int y, t_fractal *param)
 {
 	t_complex	zoom_c;
-	t_complex	range;
-	t_complex	r_range;
 
-	range.x = -2;
-	range.y = 2;
-	r_range.x = 2;
-	r_range.y = -2;
-	zoom_c.x = map(x, r_range, 0, WIDTH) * param->zoom + param->shift_x;
-	zoom_c.y = map(y, range, 0, HEIGHT) * param->zoom + param->shift_y;
+	zoom_c.x = map(x, param->r_range, 0, WIDTH) * param->zoom + param->shift_x;
+	zoom_c.y = map(y, param->range, 0, HEIGHT) * param->zoom + param->shift_y;
 	if (button == Button5)
 	{
 		param->shift_x = zoom_c.x - (zoom_c.x - param->shift_x) / 1.05;

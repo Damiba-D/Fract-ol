@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/25 15:33:18 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:07:29 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static void	data_init(t_fractal *fractal)
 	fractal->colors.color = BLACK;
 	fractal->colors.r_start = BLACK;
 	fractal->colors.r_end = WHITE;
+	fractal->range.x = -2;
+	fractal->range.y = 2;
+	fractal->r_range.x = 2;
+	fractal->r_range.y = -2;
 }
 
 static void	events_init(t_fractal *fractal)
