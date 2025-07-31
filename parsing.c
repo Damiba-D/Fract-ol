@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:31:46 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 16:59:52 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/31 11:44:34 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static int	is_valid_double(char *str)
 
 static void	print_corr_arg(void)
 {
-	ft_printf("Incorrect Usage\nExpected Inputs:\n./fractol mandelbrot\n\
-./fractol julia (dbl < 1 && dbl > -1) (dbl < 1 && dbl > -1)\n");
+	ft_putstr_fd("Incorrect Usage\nExpected Inputs:\n./fractol mandelbrot\n\
+./fractol julia (dbl < 1 && dbl > -1) (dbl < 1 && dbl > -1)\n", 2);
 }
 
 void	arg_error(void)
