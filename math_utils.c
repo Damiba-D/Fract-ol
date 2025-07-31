@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:47:08 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/26 16:58:19 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/31 12:07:21 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	map_colors(double unsc_num, t_colors colors, double min, double max)
 	int		g;
 	int		b;
 
+	if (!colors.smooth)
+		return ((int)((colors.r_end - colors.r_start) * \
+(unsc_num - min) / (max - min) + colors.r_start));
 	t = (unsc_num - min) / (max - min);
 	r = ((1 - t) * ((colors.r_start >> 16) & 0xFF) + \
 t * ((colors.r_end >> 16) & 0xFF));

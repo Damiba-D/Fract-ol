@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/27 13:10:06 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/31 11:55:27 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_colors
 	int	r_start;
 	int	r_end;
 	int	color;
+	int	smooth;
 }				t_colors;
 
 typedef struct s_complex

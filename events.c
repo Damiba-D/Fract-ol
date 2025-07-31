@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:36:44 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/27 13:09:44 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/31 12:05:41 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ int	mouse_hook(int button, int x, int y, t_fractal *param)
 		param->shift_y = zoom_c.y - (zoom_c.y - param->shift_y) / 0.95;
 		param->zoom *= 0.95;
 	}
-	fractal_render(param);
-	return (0);
+	if (button == Button3)
+		param->colors.smooth = !param->colors.smooth;
+	if (button == Button1)
+	{
+		param->shift_x = 0;
+		param->shift_y = 0;
+		param->zoom = 1.0;
+	}
+	return (fractal_render(param), 0);
 }

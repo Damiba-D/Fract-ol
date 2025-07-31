@@ -6,7 +6,7 @@
 /*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:39:19 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/27 13:07:29 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/07/31 11:56:23 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	data_init(t_fractal *fractal)
 	fractal->range.y = 2;
 	fractal->r_range.x = 2;
 	fractal->r_range.y = -2;
+	fractal->colors.smooth = 1;
 }
 
 static void	events_init(t_fractal *fractal)
