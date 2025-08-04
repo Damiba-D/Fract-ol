@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:39:47 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/08/03 16:15:23 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:14:28 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 # define WHITE 0x00FFFFFF
 # define ORANGE 0x00FFA500
 # define PURPLE 0x00301934
+
+typedef enum type
+{
+	julia,
+	mandelbrot
+}				t_type;
 
 typedef struct s_data
 {
@@ -68,6 +74,7 @@ typedef struct s_fractal
 	t_colors	colors;
 	t_complex	range;
 	t_complex	r_range;
+	t_type		type;
 }				t_fractal;
 
 typedef struct s_atdb_vars

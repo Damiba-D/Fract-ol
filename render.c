@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddamiba <ddamiba@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: ddamiba <ddamiba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 21:19:11 by ddamiba           #+#    #+#             */
-/*   Updated: 2025/07/27 13:13:43 by ddamiba          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:00:09 by ddamiba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 static void	mandel_or_julia(t_complex *z, t_complex *c, \
 t_fractal *fractal, t_complex coords)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (fractal->type == julia)
 	{
 		z->x = (map(coords.x, fractal->range, 0, WIDTH) * fractal->zoom) + \
 fractal->shift_x;
