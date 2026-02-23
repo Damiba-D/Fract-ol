@@ -97,7 +97,7 @@ The rendering uses the escape-time algorithm to determine whether points belong 
 ## Resources
 
 ### Documentation & Tutorials
-- [Fractol Tutorial by CodeVault](https://youtu.be/ANLW1zYbLcs?si=ydH8yKkz4gZrtS63) - Comprehensive video guide on implementing fractol
+- [Fractol Tutorial by Oceano](https://youtu.be/ANLW1zYbLcs?si=ydH8yKkz4gZrtS63) - Comprehensive video guide on implementing fractol
 - [Mandelbrot Set - Wikipedia](https://en.wikipedia.org/wiki/Mandelbrot_set) - Mathematical background and theory
 - [Julia Set - Wikipedia](https://en.wikipedia.org/wiki/Julia_set) - Detailed explanation of Julia sets
 - [MiniLibX Documentation](https://harm-smits.github.io/42docs/libs/minilibx) - Graphics library reference
