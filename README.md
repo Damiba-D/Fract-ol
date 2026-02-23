@@ -33,6 +33,8 @@ The program accepts different arguments depending on the fractal type:
 ./fractol mandelbrot
 ```
 
+<img width="1008" height="640" alt="image" src="https://github.com/user-attachments/assets/6d24e1a6-fa7c-4eb9-bfe9-aeb89233aeb2" />
+
 **For Julia Set:**
 ```bash
 ./fractol julia <real_part> <imaginary_part>
@@ -42,8 +44,10 @@ Where `<real_part>` and `<imaginary_part>` are floating-point numbers between -1
 
 **Example:**
 ```bash
-./fractol julia -0.4 0.6
+./fractol julia −0.70176 −0.3842
 ```
+
+<img width="818" height="505" alt="image" src="https://github.com/user-attachments/assets/acbb2379-69d9-4cc8-9b58-b1c461887b2e" />
 
 ### Controls
 
